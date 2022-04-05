@@ -5,7 +5,7 @@ from sqlalchemy import text
 
 
 def welcome_to_library():
-    print("""Welcome to ... library we specialise in magical books!
+    print("""Welcome to Hogwarts library we specialise in magical books!
     """)
 
 def get_user_search_results():
@@ -32,7 +32,7 @@ def request_borrow_book():
     with engine.connect() as conn:
         result = conn.execute(text(f"SELECT book_id, book_title, on_loan, reserved FROM books"))
         for row in result:
-            if book_number == str(row.book_id) and row.on_loan == "no":
+            if book_number == str(row.book_id):
                 borrow_book(book_number)
                 break
             elif book_number == str(row.book_id) and row.on_loan == "yes":
