@@ -30,13 +30,14 @@ engine = create_engine("mysql+pymysql://root:password@localhost/library", echo=F
 #             print(row)
 
 # USER SEARCH AND BORROW
-LibraryModules.welcome_to_library()
-start = input("Would you like to use the library search engine? Enter y for Yes or q to quit: ")
-while start.lower() == "y":
-    search_outcome = LibraryModules.get_user_search_results()
-    if len(search_outcome) == 0:
-        print("Sorry your search found no results.")
-    else:
-        LibraryModules.request_borrow_book()
-    start = input("Would you like to search again? Enter y for yes or q to quit: ")
+# LibraryModules.welcome_to_library()
+# start = input("Would you like to use the library search engine? Enter y for Yes or q to quit: ")
+# while start.lower() == "y":
+#     search_outcome = LibraryModules.get_user_search_results()
+#     if len(search_outcome) == 0:
+#         print("Sorry your search found no results.")
+#     else:
+#         LibraryModules.check_if_book_available_to_borrow()
+#     start = input("Would you like to search again? Enter y for yes or q to quit: ")
 
+LibraryModules.make_book_on_loan_in_db(5)
